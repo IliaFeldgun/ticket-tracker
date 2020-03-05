@@ -1,43 +1,7 @@
 import React from 'react';
+import {TicketStatus, TicketSeverity, ITicket} from '../models/Ticket'
 
-enum TicketStatus {
-    Open = "open",
-    InProgress = "inprogress",
-    Done = "done"
-}
-
-enum TicketSeverity {
-    Low = 1,
-    Medium,
-    High
-}
-
-interface ITicketProps {
-    Summary : string,
-    Description : string,
-    Status: TicketStatus,
-    Severity: TicketSeverity
-}
-export class Ticket extends React.PureComponent {
-    constructor (props: ITicketProps) {
-        super(props)
-        this.ticketId = ""
-        this.creationDate = Date.now()
-        this.updateDate = Date.now()
-    }
-
-    ticketId : string
-    creationDate : number
-    updateDate : number
-}
-interface ITicketDetailsProps {
-    summary: string,
-    description: string,
-    status: TicketStatus,
-    severity: TicketSeverity,
-    ticketId: string,
-    creationDate: number,
-    updateDate: number,
+interface ITicketDetailsProps extends ITicket {
     onChange: (event : React.FormEvent) => void,
 }
 export class TicketDetails extends React.PureComponent<ITicketDetailsProps> {
@@ -47,7 +11,7 @@ export class TicketDetails extends React.PureComponent<ITicketDetailsProps> {
 
     handleTicketChange(event: React.FormEvent)
     {
-
+        this.props.onChange(event)
     }
 
     render() {

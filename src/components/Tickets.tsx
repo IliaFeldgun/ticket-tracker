@@ -21,12 +21,12 @@ interface ITicketProps {
 export class Ticket extends React.PureComponent {
     constructor (props: ITicketProps) {
         super(props)
-        this.id = ""
+        this.ticketId = ""
         this.creationDate = Date.now()
         this.updateDate = Date.now()
     }
 
-    id : string
+    ticketId : string
     creationDate : number
     updateDate : number
 }
@@ -35,7 +35,7 @@ interface ITicketDetailsProps {
     description: string,
     status: TicketStatus,
     severity: TicketSeverity,
-    id: string,
+    ticketId: string,
     creationDate: number,
     updateDate: number,
     onChange: (event : React.FormEvent) => void,
@@ -55,7 +55,7 @@ export class TicketDetails extends React.PureComponent<ITicketDetailsProps> {
             <div className="ticket-details">
                 <form className="ticket-details-form" onSubmit={this.handleTicketChange}>
                     <div>
-                        Ticket ID: {this.props.id}
+                        Ticket ID: {this.props.ticketId}
                     </div>
                     <div>
                         Summary: 

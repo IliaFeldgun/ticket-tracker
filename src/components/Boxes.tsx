@@ -3,9 +3,9 @@ import React from 'react';
 import {SearchBox, CreateButton} from './CommonComponents';
 
 interface ITicketBoxProps {
-    id: string,
+    ticketId: string,
     summary: string,
-    selectTicket: (id: string) => void
+    selectTicket: (ticketId: string) => void
 }
 class TicketBox extends React.PureComponent<ITicketBoxProps>{
     constructor(props : ITicketBoxProps)    {
@@ -13,17 +13,17 @@ class TicketBox extends React.PureComponent<ITicketBoxProps>{
 
         this.handleTicketSelection = this.handleTicketSelection.bind(this)
     }
-    handleTicketSelection(event: React.MouseEvent<HTMLElement>, id : string)
+    handleTicketSelection(event: React.MouseEvent<HTMLElement>, ticketId : string)
     {
-        this.props.selectTicket(id)
+        this.props.selectTicket(ticketId)
     }
 
     render() {
         return (
             <div className="ticket-box" 
                  onClick={(event) => 
-                            this.handleTicketSelection(event, this.props.id)}>
-                <label>ID: {this.props.id}</label>
+                            this.handleTicketSelection(event, this.props.ticketId)}>
+                <label>ID: {this.props.ticketId}</label>
                 <label>Summary: {this.props.summary}</label>
             </div>
         )
@@ -33,7 +33,7 @@ class TicketBox extends React.PureComponent<ITicketBoxProps>{
 interface ITicketBoxListProps {
     listTitle: string,
     ticketIdList: Array<string>,
-    selectTicket: (id: string) => void,
+    selectTicket: (ticketId: string) => void,
 }
 class TicketBoxList extends React.PureComponent<ITicketBoxListProps>{
     constructor(props : ITicketBoxListProps) {
@@ -43,7 +43,8 @@ class TicketBoxList extends React.PureComponent<ITicketBoxListProps>{
 
     render() {
         const ticketBoxes = this.props.ticketIdList.map(item => {
-            <TicketBox id={item} 
+            <TicketBox key={item}
+                       ticketId={item}
                        selectTicket={this.props.selectTicket} 
                        summary={"" /* Need to get summary from Redux? */} />
         })

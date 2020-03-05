@@ -7,7 +7,7 @@ import { createStore} from 'redux';
 
 import { Provider } from 'react-redux';
 
-import App from './App';
+import App from './Routing';
 
 //const store //= createStore();
 

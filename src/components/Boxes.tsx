@@ -42,12 +42,12 @@ class TicketBoxList extends React.PureComponent<ITicketBoxListProps>{
     }
 
     render() {
-        const ticketBoxes = this.props.ticketIdList.map(item => {
+        const ticketBoxes = this.props.ticketIdList.map(item => (
             <TicketBox key={item}
                        ticketId={item}
                        selectTicket={this.props.selectTicket} 
                        summary={"" /* Need to get summary from Redux? */} />
-        })
+        ))
 
         return (
             <div className="ticket-box-list">

@@ -60,7 +60,7 @@ class TicketBoxList extends React.PureComponent<ITicketBoxListProps>{
 interface ITicketBoxViewProps {
 
 }
-class TicketBoxView extends React.PureComponent{
+export class TicketBoxView extends React.PureComponent{
     constructor(props : ITicketBoxViewProps)
     {
         super(props)

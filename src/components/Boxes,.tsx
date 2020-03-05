@@ -29,6 +29,7 @@ class TicketBox extends React.PureComponent<ITicketBoxProps>{
 }
 
 interface ITicketBoxListProps {
+    listTitle: string,
     ticketIdList: Array<string>,
     selectTicket: (id: string) => void,
 }
@@ -47,6 +48,7 @@ class TicketBoxList extends React.PureComponent<ITicketBoxListProps>{
 
         return (
             <div className="ticket-box-list">
+                <div>{this.props.listTitle}</div>
                 {ticketBoxes}
             </div>
         )

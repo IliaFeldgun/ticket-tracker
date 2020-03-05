@@ -2,7 +2,7 @@ import React from 'react';
 import {TicketStatus, TicketSeverity, ITicket} from '../models/Ticket'
 
 interface ITicketDetailsProps extends ITicket {
-    onChange: (event : React.FormEvent) => void,
+    onTicketChange: (event : React.FormEvent) => void,
 }
 export class TicketDetails extends React.PureComponent<ITicketDetailsProps> {
     constructor (props : ITicketDetailsProps) {
@@ -11,7 +11,7 @@ export class TicketDetails extends React.PureComponent<ITicketDetailsProps> {
 
     handleTicketChange(event: React.FormEvent)
     {
-        this.props.onChange(event)
+        this.props.onTicketChange(event)
     }
 
     render() {

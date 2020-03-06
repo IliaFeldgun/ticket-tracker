@@ -11,9 +11,9 @@ export enum TicketSeverity {
 }
 
 export interface ITicket {
-    ticketId : string,
-    summary : string,
-    description : string,
+    ticketId: string,
+    summary: string,
+    description: string,
     status: TicketStatus,
     severity: TicketSeverity,
     creationDate: number,

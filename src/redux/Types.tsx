@@ -3,6 +3,7 @@ import { ITicket } from "../models/Ticket"
 export const CREATE_TICKET = "CREATE_TICKET"
 export const UPDATE_TICKET = "UPDATE_TICKET"
 export const DELETE_TICKET = "DELETE_TICKET"
+export const FILTER_BY = "FILTER_BY"
 
 interface ICreateTicketAction {
     type:   typeof CREATE_TICKET,
@@ -19,10 +20,17 @@ interface IDeleteTicketAction {
     ticketId: ITicket["ticketId"]
 }
 
+interface IFilterByAction {
+    type:   typeof FILTER_BY,
+    filter: string
+}
+
 export type TicketListActionTypes = ICreateTicketAction | 
                                     IUpdateTicketAction | 
-                                    IDeleteTicketAction
+                                    IDeleteTicketAction |
+                                    IFilterByAction
 
 export interface ITicketList {
-    ticketList: Array<ITicket>
+    ticketList: Array<ITicket>,
+    filter:     string
 }

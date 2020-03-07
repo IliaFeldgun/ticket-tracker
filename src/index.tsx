@@ -9,13 +9,19 @@ import { Provider } from 'react-redux';
 
 import App from './Routing';
 
-//const store //= createStore();
+import ticketTracker from './redux/Reducers';
+
+const store = createStore(ticketTracker)
 
 const rootElement = document.getElementById('root');
+
 ReactDOM.render(
-      <App />,
+  <Provider store={store}>
+      <App />
+  </Provider>,
     rootElement
-  )
+    
+)
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

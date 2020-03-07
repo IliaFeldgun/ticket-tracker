@@ -29,9 +29,9 @@ function ticketTracker(state = initialState,
             }
         case DELETE_TICKET:
             return { ...state, 
-                ticketList: state.ticketList.filter(ticket => {
-                    ticket.ticketId === action.ticketId}
-                )
+                ticketList: state.ticketList.filter(ticket => (
+                    ticket.ticketId === action.ticketId
+                ))
             }
         case FILTER_BY: // TODO: maybe will be managed here??
             return { ...state, filter: action.filter }

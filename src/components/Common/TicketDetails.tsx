@@ -1,10 +1,10 @@
 import React from 'react';
-import {TicketStatus, TicketSeverity, ITicket} from '../models/Ticket'
+import {TicketStatus, TicketSeverity, ITicket} from '../../models/Ticket'
 
 interface ITicketDetailsProps extends ITicket {
     onTicketChange: (event : React.FormEvent) => void,
 }
-export class TicketDetails extends React.PureComponent<ITicketDetailsProps> {
+export default class TicketDetails extends React.PureComponent<ITicketDetailsProps> {
     constructor (props : ITicketDetailsProps) {
         super(props)
     }

@@ -17,20 +17,27 @@ function ticketTracker(state = initialState,
 {
     switch (action.type) {
         case CREATE_TICKET:
-            return Object.assign({}, state, { 
-                ticketList: [...state.ticketList, action.ticket], filter: state.filter})
+            return { ...state, 
+                ticketList: [ ...state.ticketList, { ...action.ticket}]}
         case UPDATE_TICKET:
-            return Object.assign({}, state, { 
-                ticketList: [], filter: state.filter})
+            return { ...state, 
+                ticketList: state.ticketList.map(ticket => {
+                    if (ticket.ticketId === action.ticket.ticketId)
+                        return { ...action.ticket} // TODO: maybe update certain properties
+                    return ticket
+                }) 
+            }
         case DELETE_TICKET:
-            return Object.assign({}, state, { 
+            return { ...state, 
                 ticketList: state.ticketList.filter(ticket => {
-                                 ticket.ticketId === action.ticketId})
-                })
+                    ticket.ticketId === action.ticketId}
+                )
+            }
         case FILTER_BY: // TODO: maybe will be managed here??
-            return Object.assign({}, state, {filter: action.filter})
+            return { ...state, filter: action.filter }
         default:
             return state
     }
 }
 
+export default ticketTracker

@@ -40,4 +40,5 @@ function ticketTracker(state = initialState,
     }
 }
 
+export type RootState = ReturnType<typeof ticketTracker>
 export default ticketTracker

@@ -2,8 +2,8 @@ import React from 'react'
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import { TicketBoxView } from './components/Boxes'
-import { TicketTableView } from './components/Table'
+import TicketBoxView from './components/Boxes/TicketBoxView'
+import { TicketTableView } from './components/Table/Table'
 
 import { boxesRoute, tableRoute } from './config'
 

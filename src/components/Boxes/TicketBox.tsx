@@ -1,8 +1,7 @@
 import React from 'react'
+import { ITicket } from '../../models/Ticket'
 
-interface ITicketBoxProps {
-    ticketId: string,
-    summary: string,
+interface ITicketBoxProps extends ITicket {
     selectTicket: (ticketId: string) => void
 }
 export default class TicketBox extends React.PureComponent<ITicketBoxProps>{

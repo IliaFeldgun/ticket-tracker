@@ -1,9 +1,11 @@
 import React from 'react'
 import TicketBox from './TicketBox'
+import { ITicket } from '../../models/Ticket'
+import { connect } from 'react-redux'
 
 interface ITicketBoxListProps {
     listTitle: string,
-    ticketIdList: Array<string>,
+    ticketList: Array<ITicket>,
     selectTicket: (ticketId: string) => void,
 }
 export default class TicketBoxList extends React.PureComponent<ITicketBoxListProps>{
@@ -13,11 +15,17 @@ export default class TicketBoxList extends React.PureComponent<ITicketBoxListPro
     }
 
     render() {
-        const ticketBoxes = this.props.ticketIdList.map(item => (
-            <TicketBox key={item}
-                       ticketId={item}
+        const ticketBoxes = this.props.ticketList.map(item => (
+            <TicketBox key={item.ticketId}
+                       ticketId={item.ticketId}
+                       summary={item.summary}
+                       description={item.description}
+                       status={item.status}
+                       severity={item.severity}
+                       creationDate={item.creationDate}
+                       updateDate={item.updateDate}
                        selectTicket={this.props.selectTicket} 
-                       summary={"" /* Need to get summary from Redux? */} />
+                        />
         ))
 
         return (

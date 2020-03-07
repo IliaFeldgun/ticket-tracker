@@ -39,15 +39,15 @@ export default class TicketBoxView extends React.PureComponent{
                 </div>
                 <div>
                     <TicketBoxList listTitle="Open" 
-                                   ticketIdList={[] /*TODO: add list */}
+                                   ticketList={[] /*TODO: add list */}
                                    selectTicket={this.handleTicketSelection} />
                                    
                     <TicketBoxList listTitle="In-Progress" 
-                                   ticketIdList={[] /*TODO: add list */}
+                                   ticketList={[] /*TODO: add list */}
                                    selectTicket={this.handleTicketSelection} />
                                    
                     <TicketBoxList listTitle="Done" 
-                                   ticketIdList={[] /*TODO: add list */}
+                                   ticketList={[] /*TODO: add list */}
                                    selectTicket={this.handleTicketSelection} />
                 </div>
             </div>

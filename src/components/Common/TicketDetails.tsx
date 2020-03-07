@@ -11,6 +11,7 @@ export default class TicketDetails extends React.PureComponent<ITicketDetailsPro
 
     handleTicketChange(event: React.FormEvent)
     {
+        event.preventDefault()
         this.props.onTicketChange(event)
     }
 

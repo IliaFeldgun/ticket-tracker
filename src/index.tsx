@@ -3,15 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 //import * as serviceWorker from './serviceWorker';
 
-import { createStore} from 'redux';
-
 import { Provider } from 'react-redux';
 
 import App from './Routing';
 
-import ticketTracker from './redux/Reducers';
-
-const store = createStore(ticketTracker)
+import store from './redux/Store'
 
 const rootElement = document.getElementById('root');
 
@@ -19,8 +15,7 @@ ReactDOM.render(
   <Provider store={store}>
       <App />
   </Provider>,
-    rootElement
-    
+  rootElement  
 )
 
 // If you want your app to work offline and load faster, you can change

@@ -2,6 +2,8 @@ import React from 'react'
 import TicketBox from './TicketBox'
 import { ITicket } from '../../models/Ticket'
 import { connect } from 'react-redux'
+import { getTicketList } from '../../redux/Selectors'
+import { ITicketList } from '../../redux/Types'
 
 interface ITicketBoxListProps {
     listTitle: string,
@@ -30,7 +32,7 @@ export default class TicketBoxList extends React.PureComponent<ITicketBoxListPro
 
         return (
             <div className="ticket-box-list">
-                <div>{this.props.listTitle}</div>
+                <span>{this.props.listTitle}</span>
                 {ticketBoxes}
             </div>
         )

@@ -1,7 +1,7 @@
 export enum TicketStatus {
-    Open = "open",
-    InProgress = "inprogress",
-    Done = "done"
+    Open = "Open",
+    InProgress = "In-Progress",
+    Done = "Done"
 }
 
 export enum TicketSeverity {

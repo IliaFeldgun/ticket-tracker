@@ -31,10 +31,10 @@ export default class TicketBoxList extends React.PureComponent<ITicketBoxListPro
         ))
 
         return (
-            <div className="ticket-box-list">
+            <span className="ticket-box-list">
                 <span>{this.props.listTitle}</span>
                 {ticketBoxes}
-            </div>
+            </span>
         )
     }
 }

@@ -1,24 +1,39 @@
 import React from 'react';
-import {TicketStatus, TicketSeverity, ITicket} from '../../models/Ticket'
+import { TicketStatus, TicketSeverity, ITicket } from '../../models/Ticket'
+import { createTicket, updateTicket } from '../../redux/Actions'
+import { connect } from 'react-redux';
+
 
 interface ITicketDetailsProps extends ITicket {
     onTicketChange: (event : React.FormEvent) => void,
 }
-export default class TicketDetails extends React.PureComponent<ITicketDetailsProps> {
+class TicketDetails extends React.PureComponent<ITicketDetailsProps> {
     constructor (props : ITicketDetailsProps) {
         super(props)
+
+        this.handleTicketDetails = this.handleTicketDetails.bind(this)
     }
 
-    handleTicketChange(event: React.FormEvent)
+    handleTicketDetails(event: React.FormEvent)
     {
         event.preventDefault()
         this.props.onTicketChange(event)
     }
 
+    onCreate()
+    {
+
+    }
+
+    onEdit()
+    {
+        
+    }
+
     render() {
         return (
             <div className="ticket-details">
-                <form className="ticket-details-form" onSubmit={this.handleTicketChange}>
+                <form className="ticket-details-form" onSubmit={this.handleTicketDetails}>
                     <div>
                         Ticket ID: {this.props.ticketId}
                     </div>
@@ -63,3 +78,10 @@ export default class TicketDetails extends React.PureComponent<ITicketDetailsPro
         )
     }
 }
+
+const mapActionsToProps = {
+    onCreate: createTicket,
+    onEdit: updateTicket
+}
+
+export default connect(undefined, mapActionsToProps)(TicketDetails)

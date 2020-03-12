@@ -14,6 +14,11 @@ export const getFilteredTicketList = (state: ITicketList) => {
     })
 }
 
+export const getTicketById = (state: ITicketList, id: ITicket["ticketId"]) => {
+    const allTickets = getTicketList(state)
+    return allTickets.find(ticket => (ticket.ticketId === id))
+} 
+
 export const getTicketListBySeverity = (state: ITicketList, severity: ITicket["severity"]) => {
     const allTickets = getTicketList(state)
 
